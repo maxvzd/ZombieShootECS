@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 115610939}
   m_Layer: 0
-  m_Name: ADSRearPoint
+  m_Name: RearSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 115610938}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.08986, y: -0.13585, z: 0.128}
+  m_LocalPosition: {x: 0.08986, y: -0.13585, z: 0.2412}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -613,7 +613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 551241164}
   m_Layer: 6
-  m_Name: ADSFrontPoint
+  m_Name: FrontSight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -957,7 +957,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 8556990604658026208}
-  adsTransform: {fileID: 115610939}
+  rearSightTransform: {fileID: 115610939}
+  frontSightTransform: {fileID: 551241164}
   aimTarget: {fileID: 808239809}
   mainCamera: {fileID: 1823688466}
 --- !u!1 &808239808
@@ -3480,6 +3481,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8556990604658026208}
+  - component: {fileID: 8556990604658026210}
+  - component: {fileID: 8556990604658026209}
   m_Layer: 6
   m_Name: Rifle 1
   m_TagString: Untagged
@@ -10775,6 +10778,30 @@ Transform:
   - {fileID: 551241164}
   m_Father: {fileID: 115610939}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8556990604658026209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781319864242678407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2187c623dd33d444baa61b32ae1c63e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8556990604658026210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781319864242678407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106c3e5a73215cb4db780d280e0210b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8591746193002620964
 GameObject:
   m_ObjectHideFlags: 0

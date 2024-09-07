@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class AimBehaviour : MonoBehaviour
 {
-    [SerializeField] private Transform weaponTransform;
-    [SerializeField] private Transform adsTransform;
+    [SerializeField] private Transform rearSightTransform;
     [SerializeField] private Transform aimTarget;
     [SerializeField] private Camera mainCamera;
 
@@ -12,42 +11,36 @@ public class AimBehaviour : MonoBehaviour
     private IEnumerator _weaponPositionLerper;
     private float _originalFOV;
 
-    private bool _isAiming;
 
     private void Start()
     {
-        _originalPosition = adsTransform.localPosition;
+        _originalPosition = rearSightTransform.localPosition;
         _originalFOV = mainCamera.fieldOfView;
     }
 
     private void Update()
     {
+        Vector3 rearSightPositionInWorld = rearSightTransform.position;
+
         if (Input.GetMouseButtonDown(1))
         {
             Ray middleOfScreen = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
+
             Debug.DrawRay(middleOfScreen.origin, middleOfScreen.direction, Color.red, 3f);
 
-            Vector3 adsPositionWorld = middleOfScreen.GetPoint(0.05f);
-            Vector3 localPoint = adsTransform.parent.InverseTransformPoint(adsPositionWorld); //+ transform.up * 0.005f;
+            rearSightPositionInWorld = middleOfScreen.GetPoint(0.1f);
 
-            //IMPROVE THIS
-            adsTransform.forward = -middleOfScreen.direction;
-
+            Vector3 localPoint = rearSightTransform.parent.InverseTransformPoint(rearSightPositionInWorld);
             StartWeaponLerpCoroutine(localPoint, 40, 0.2f);
-            _isAiming = true;
         }
 
         if (Input.GetMouseButtonUp(1))
         {
             StartWeaponLerpCoroutine(_originalPosition, _originalFOV, 0.2f);
-            _isAiming = false;
         }
 
-        if (!_isAiming)
-        {
-            Quaternion lookAtRotation = Quaternion.LookRotation(weaponTransform.position - aimTarget.position);
-            adsTransform.rotation = lookAtRotation;
-        }
+        Quaternion lookAtRotation = Quaternion.LookRotation(rearSightPositionInWorld - aimTarget.position);
+        rearSightTransform.rotation = lookAtRotation;
     }
 
     private void StartWeaponLerpCoroutine(Vector3 positionToLerpTo, float fovToLerpTo, float lerpTime)
@@ -63,7 +56,7 @@ public class AimBehaviour : MonoBehaviour
 
     private IEnumerator LerpWeaponCoRoutine(Vector3 positionToLerpTo, float fovToLerpTo, float lerpTime)
     {
-        Vector3 fromPosition = adsTransform.localPosition;
+        Vector3 fromPosition = rearSightTransform.localPosition;
         float fromFov = mainCamera.fieldOfView;
         float elapsedTime = 0f;
 
@@ -72,13 +65,13 @@ public class AimBehaviour : MonoBehaviour
             float t = elapsedTime / lerpTime;
             elapsedTime += Time.deltaTime;
 
-            adsTransform.localPosition = Vector3.Lerp(fromPosition, positionToLerpTo, t);
+            rearSightTransform.localPosition = Vector3.Lerp(fromPosition, positionToLerpTo, t);
             mainCamera.fieldOfView = Mathf.Lerp(fromFov, fovToLerpTo, t);
 
             yield return new WaitForEndOfFrame();
         }
 
-        adsTransform.localPosition = positionToLerpTo;
+        rearSightTransform.localPosition = positionToLerpTo;
         mainCamera.fieldOfView = fovToLerpTo;
     }
 }
