@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
-    
     [SerializeField] private float sensitivity;
     [SerializeField] private float maxVerticalAngle;
     
@@ -23,7 +21,6 @@ public class MouseLook : MonoBehaviour
         _rotationX += Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
         _rotationX = Mathf.Clamp(_rotationX, -maxVerticalAngle, maxVerticalAngle);
 
-        mainCamera.transform.eulerAngles = new Vector3(-_rotationX, _rotationY);
-        //mainCamera.
+        transform.eulerAngles = new Vector3(-_rotationX, _rotationY);
     }
 }
