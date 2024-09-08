@@ -22,7 +22,7 @@ public class AimBehaviour : MonoBehaviour
     {
         Vector3 rearSightPositionInWorld = rearSightTransform.position;
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetButtonDown(Constants.Fire2Key))
         {
             Ray middleOfScreen = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
 
@@ -34,7 +34,7 @@ public class AimBehaviour : MonoBehaviour
             StartWeaponLerpCoroutine(localPoint, 40, 0.2f);
         }
 
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetButtonUp(Constants.Fire2Key))
         {
             StartWeaponLerpCoroutine(_originalPosition, _originalFOV, 0.2f);
         }
