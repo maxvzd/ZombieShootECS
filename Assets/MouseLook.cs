@@ -16,8 +16,8 @@ public class MouseLook : MonoBehaviour
 
     private void Update()
     {
-        float rotationX = Input.GetAxis("Mouse Y") * Time.deltaTime * sensitivity;
-        float rotationY = Input.GetAxis("Mouse X") * Time.deltaTime * sensitivity;
+        float rotationX = Input.GetAxis("Mouse Y") * sensitivity;
+        float rotationY = Input.GetAxis("Mouse X") * sensitivity;
 
         Vector3 lookRotation = transform.eulerAngles + new Vector3(-rotationX, rotationY, 0);
         lookRotation.x = lookRotation.x > 180 ? lookRotation.x - 360 : lookRotation.x;
