@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -11,7 +12,9 @@ public class AimBehaviour : MonoBehaviour
     private IEnumerator _weaponPositionLerper;
     private float _originalFOV;
 
-
+    public event EventHandler<EventArgs> PlayerAiming;
+    public event EventHandler<EventArgs> PlayerNotAiming;
+    
     private void Start()
     {
         _originalPosition = rearSightTransform.localPosition;
@@ -32,11 +35,14 @@ public class AimBehaviour : MonoBehaviour
 
             Vector3 localPoint = rearSightTransform.parent.InverseTransformPoint(rearSightPositionInWorld);
             StartWeaponLerpCoroutine(localPoint, 40, 0.2f);
+
+            PlayerAiming?.Invoke(this, EventArgs.Empty);
         }
 
         if (Input.GetButtonUp(Constants.Fire2Key))
         {
             StartWeaponLerpCoroutine(_originalPosition, _originalFOV, 0.2f);
+            PlayerNotAiming?.Invoke(this, EventArgs.Empty);
         }
 
         Quaternion lookAtRotation = Quaternion.LookRotation(rearSightPositionInWorld - aimTarget.position);

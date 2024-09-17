@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using UnityEngine;
 
 public class DeadZoneLook : MonoBehaviour
@@ -9,7 +9,41 @@ public class DeadZoneLook : MonoBehaviour
     [SerializeField] private float maxGunAimAngle;
     [SerializeField] private float sensitivity;
     [SerializeField] private float maxVerticalAngle;
+    private IEnumerator _lerpAimToLookCoRoutine;
 
+    public bool UseDeadZone { get; set; } = true;
+
+    public void LerpAimToLook()
+    {
+        //aimAtBase.eulerAngles = lookAtBase.eulerAngles;
+
+        if (_lerpAimToLookCoRoutine is not null)
+        {
+            StopCoroutine(_lerpAimToLookCoRoutine);
+        }
+
+        _lerpAimToLookCoRoutine = LerpAimToLookCoroutine();
+        StartCoroutine(_lerpAimToLookCoRoutine);
+    }
+
+    private IEnumerator LerpAimToLookCoroutine()
+    {
+        float timeElapsed = 0f;
+        float lerpTime = 0.1f;
+
+        Vector3 originalAimRotation = aimAtBase.eulerAngles;
+        while (timeElapsed < lerpTime)
+        {
+            float t = timeElapsed / lerpTime;
+
+            aimAtBase.eulerAngles = Vector3.Lerp(originalAimRotation, lookAtBase.eulerAngles, t);
+
+            yield return new WaitForEndOfFrame();
+            timeElapsed += Time.deltaTime;
+        }
+
+        aimAtBase.eulerAngles = lookAtBase.eulerAngles;
+    }
 
     private void Start()
     {
@@ -17,17 +51,23 @@ public class DeadZoneLook : MonoBehaviour
         Cursor.visible = false;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         float rotationX = Input.GetAxis("Mouse Y") * sensitivity;
         float rotationY = Input.GetAxis("Mouse X") * sensitivity;
-        
+
         Vector3 aimRotation = aimAtBase.eulerAngles + new Vector3(-rotationX, rotationY, 0);
         Vector3 lookRotation = lookAtBase.eulerAngles;
 
-        lookRotation += CalculateDeadZone(aimRotation.y, lookRotation.y, Vector3.up) * rotationY;
-        lookRotation += CalculateDeadZone(aimRotation.x, lookRotation.x, Vector3.right) * -rotationX;
+        if (UseDeadZone)
+        {
+            lookRotation += CalculateDeadZone(aimRotation.y, lookRotation.y, Vector3.up) * rotationY;
+            lookRotation += CalculateDeadZone(aimRotation.x, lookRotation.x, Vector3.right) * -rotationX;
+        }
+        else
+        {
+            lookRotation += new Vector3(-rotationX, rotationY, 0);
+        }
 
         aimRotation.x = ClampEulerAngle(aimRotation.x, maxVerticalAngle);
         lookRotation.x = ClampEulerAngle(lookRotation.x, maxVerticalAngle);
@@ -39,6 +79,7 @@ public class DeadZoneLook : MonoBehaviour
     private Vector3 CalculateDeadZone(float aimRotation, float lookRotation, Vector3 direction)
     {
         Vector3 offset = Vector3.zero;
+
         if (Mathf.Abs(aimRotation - lookRotation) > maxGunAimAngle)
         {
             offset = direction;
