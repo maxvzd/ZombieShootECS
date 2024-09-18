@@ -1009,8 +1009,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentlyEquippedGun: {fileID: 8556990604658026210}
-  aimTarget: {fileID: 808239809}
   lookTarget: {fileID: 211670129}
+  aimBase: {fileID: 1656017113}
   lookAtBase: {fileID: 540198368}
 --- !u!114 &629144252
 MonoBehaviour:
@@ -10890,6 +10890,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106c3e5a73215cb4db780d280e0210b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recoilAnimCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 6.1329694
+      outSlope: 6.1329694
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.014205986
+    - serializedVersion: 3
+      time: 0.3083496
+      value: 0.9971161
+      inSlope: 0.06764512
+      outSlope: 0.06764512
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.04233072
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.3101493
+      outSlope: -1.3101493
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.046146456
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8591746193002620964
 GameObject:
   m_ObjectHideFlags: 0

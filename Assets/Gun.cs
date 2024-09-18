@@ -5,6 +5,8 @@ public class Gun : MonoBehaviour
 {
     private FireGun _fireGunScript;
     private Transform _muzzleTransform;
+    
+    [SerializeField] private AnimationCurve recoilAnimCurve;
 
     private void Start()
     {
@@ -26,9 +28,9 @@ public class Gun : MonoBehaviour
         }
     }
 
-    public void TriggerDown(Transform aimTarget, Transform lookTarget, Transform lookAtBase)
+    public void TriggerDown(Transform aimBase, Transform lookTarget, Transform lookAtBase, PlayerState playerState)
     {
-        _fireGunScript.Fire(_muzzleTransform.position, lookTarget, aimTarget, lookAtBase,0.1f);
+        _fireGunScript.Fire(_muzzleTransform.position, lookTarget, aimBase, lookAtBase,0.1f, playerState, recoilAnimCurve);
     }
 
     public void TriggerUp()
