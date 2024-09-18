@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -6,23 +5,27 @@ using Random = UnityEngine.Random;
 public class FireGun : MonoBehaviour
 {
     private Vector3 _originalPosition;
+    private AudioSource _audioSource;
 
     private void Start()
     {
         _originalPosition = transform.localPosition;
+        _audioSource = GetComponent<AudioSource>();
     }
 
-    public void Fire(Vector3 from, Transform lookTarget, Transform aimBase, Transform lookAtBase, float recoilAmount, PlayerState playerState, AnimationCurve recoilAnimCurve)
+    public void Fire(FireGunTransforms gunTransforms, float recoilAmount, PlayerState playerState, AnimationCurve recoilAnimCurve, AudioClip fireSound)
     {
-        float distanceBetweenLookAtBaseAndTarget = Vector3.Distance(lookAtBase.position, lookTarget.position);
-        float theta = Mathf.Atan(recoilAmount / distanceBetweenLookAtBaseAndTarget);
-        float thetaInDegrees = theta * (180 / Mathf.PI);
-        lookAtBase.Rotate(new Vector3(1, 0, 0), -thetaInDegrees);
-        aimBase.Rotate(new Vector3(1, 0, 0), -thetaInDegrees);
-
-        float yVariance = Random.Range(-recoilAmount * 10, recoilAmount * 10);
-        lookAtBase.Rotate(new Vector3(0, 1, 0), yVariance);
-        aimBase.Rotate(new Vector3(0, 1, 0), yVariance);
+        _audioSource.PlayOneShot(fireSound);
+        
+        // float distanceBetweenLookAtBaseAndTarget = Vector3.Distance(gunTransforms.LookAtBase.position, gunTransforms.LookTarget.position);
+        // float theta = Mathf.Atan(recoilAmount / distanceBetweenLookAtBaseAndTarget);
+        // float thetaInDegrees = theta * (180 / Mathf.PI);
+        // gunTransforms.LookAtBase.Rotate(new Vector3(1, 0, 0), -thetaInDegrees);
+        // gunTransforms.AimBase.Rotate(new Vector3(1, 0, 0), -thetaInDegrees);
+        //
+        // float yVariance = Random.Range(-recoilAmount * 10, recoilAmount * 10);
+        // gunTransforms.LookAtBase.Rotate(new Vector3(0, 1, 0), yVariance);
+        // gunTransforms.AimBase.Rotate(new Vector3(0, 1, 0), yVariance);
 
         StartCoroutine(AddVisualRecoil(playerState, recoilAnimCurve));
     }
@@ -32,11 +35,9 @@ public class FireGun : MonoBehaviour
         float timeElapsed = 0f;
         float lerpTime = 0.15f;
 
-        Transform currentTransform = transform;
-
         float recoilModifier = playerState.IsAiming ? 0.1f : 1f;
-        
-        Vector3 newPos = _originalPosition + currentTransform.up * (0.02f * recoilModifier) - currentTransform.forward * (0.05f * recoilModifier);
+
+        Vector3 newPos = _originalPosition + Vector3.up * (0.02f * recoilModifier) + Vector3.forward * (0.05f * recoilModifier);
 
         while (timeElapsed < lerpTime)
         {
@@ -47,5 +48,23 @@ public class FireGun : MonoBehaviour
             yield return new WaitForEndOfFrame();
             timeElapsed += Time.deltaTime;
         }
+
+        transform.localPosition = _originalPosition;
     }
+}
+
+public struct FireGunTransforms
+{
+    public FireGunTransforms(Transform lookAtBase, Transform aimBase, Transform lookTarget, Vector3 from)
+    {
+        LookAtBase = lookAtBase;
+        AimBase = aimBase;
+        LookTarget = lookTarget;
+        From = from;
+    }
+
+    public Vector3 From { get; }
+    public Transform LookTarget { get; }
+    public Transform AimBase { get; }
+    public Transform LookAtBase { get; }
 }
