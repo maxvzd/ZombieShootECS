@@ -10891,7 +10891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106c3e5a73215cb4db780d280e0210b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireSound: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
   recoilAnimCurve:
     serializedVersion: 2
     m_Curve:
@@ -10925,6 +10924,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  properties: {fileID: 11400000, guid: 02f9b8e21ed236c4c9ad2e590f4d8d2e, type: 2}
 --- !u!82 &8556990604658026211
 AudioSource:
   m_ObjectHideFlags: 0

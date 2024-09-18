@@ -1,4 +1,5 @@
 using System;
+using ItemProperties;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -6,8 +7,10 @@ public class Gun : MonoBehaviour
     private FireGun _fireGunScript;
     private Transform _muzzleTransform;
 
-    [SerializeField] private AudioClip fireSound;
     [SerializeField] private AnimationCurve recoilAnimCurve;
+    [SerializeField] private GunProperties properties;
+
+    public GunProperties Properties => properties;
 
     private void Start()
     {
@@ -32,11 +35,10 @@ public class Gun : MonoBehaviour
     public void TriggerDown(Transform aimBase, Transform lookTarget, Transform lookAtBase, PlayerState playerState)
     {
         FireGunTransforms gunTransforms = new FireGunTransforms(lookAtBase, aimBase, lookTarget, _muzzleTransform.position);
-        _fireGunScript.Fire(gunTransforms,0.1f, playerState, recoilAnimCurve, fireSound);
+        _fireGunScript.Fire(gunTransforms, Properties, playerState, recoilAnimCurve);
     }
 
     public void TriggerUp()
     {
-        
     }
 }
