@@ -2,6 +2,8 @@ using System.Collections;
 using ItemProperties;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using DealDamage;
+using HitReactions;
 
 public class FireGun : MonoBehaviour
 {
@@ -17,18 +19,48 @@ public class FireGun : MonoBehaviour
     public void Fire(FireGunTransforms gunTransforms, GunProperties props, PlayerState playerState, AnimationCurve recoilAnimCurve)
     {
         _audioSource.PlayOneShot(props.FireSound);
+
+        ShootRayCast(gunTransforms.From, props);
         
+        AddVerticalRecoil(gunTransforms, props.Recoil);
+        AddHorizontalRecoil(gunTransforms, props.Recoil);
+        StartCoroutine(AddVisualRecoil(playerState, recoilAnimCurve));
+    }
+
+    private void ShootRayCast(Vector3 muzzleTransform, GunProperties props)
+    {
+        Ray ray = new Ray(muzzleTransform, -transform.forward);
+        //Debug.DrawRay(muzzleTransform, -transform.forward * props.EffectiveRange, Color.green, 1f);
+        if (Physics.Raycast(ray, out RaycastHit hit, props.EffectiveRange))
+        {
+            hit.transform.TryGetComponent(out ReceiveDamage receiveDamage);
+            if (receiveDamage is not null)
+            {
+                receiveDamage.Receive();
+            }
+            
+            hit.transform.TryGetComponent(out ReactToHit react);
+            if (react is not null)
+            {
+                react.React();
+            }
+        }
+    }
+
+    private void AddVerticalRecoil(FireGunTransforms gunTransforms, float recoil)
+    {
         float distanceBetweenLookAtBaseAndTarget = Vector3.Distance(gunTransforms.LookAtBase.position, gunTransforms.LookTarget.position);
-        float theta = Mathf.Atan(props.Recoil / distanceBetweenLookAtBaseAndTarget);
+        float theta = Mathf.Atan(recoil / distanceBetweenLookAtBaseAndTarget);
         float thetaInDegrees = theta * (180 / Mathf.PI);
         gunTransforms.LookAtBase.Rotate(new Vector3(1, 0, 0), -thetaInDegrees);
         gunTransforms.AimBase.Rotate(new Vector3(1, 0, 0), -thetaInDegrees);
-        
-        float yVariance = Random.Range(-props.Recoil * 10, props.Recoil * 10);
+    }
+
+    private void AddHorizontalRecoil(FireGunTransforms gunTransforms, float recoil)
+    {
+        float yVariance = Random.Range(-recoil * 10, recoil * 10);
         gunTransforms.LookAtBase.Rotate(new Vector3(0, 1, 0), yVariance);
         gunTransforms.AimBase.Rotate(new Vector3(0, 1, 0), yVariance);
-
-        StartCoroutine(AddVisualRecoil(playerState, recoilAnimCurve));
     }
 
     private IEnumerator AddVisualRecoil(PlayerState playerState, AnimationCurve recoilAnimCurve)
