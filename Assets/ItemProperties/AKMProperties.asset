@@ -20,7 +20,7 @@ MonoBehaviour:
   handling: 1
   recoil: 0.15
   roundsPerMinute: 600
-  fireSound: {fileID: 8300000, guid: 34b439bf70b80a6409eadecc6be92d68, type: 3}
+  fireSound: {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
   muzzleVelocity: 700
   effectiveRange: 350
   availableFireModes: 0000000001000000
