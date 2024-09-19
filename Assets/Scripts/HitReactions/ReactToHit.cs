@@ -4,7 +4,7 @@ namespace HitReactions
 {
     public class ReactToHit : MonoBehaviour
     {
-        public void React()
+         public virtual void React(RaycastHit hit)
         {
             
         }

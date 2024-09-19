@@ -42,7 +42,7 @@ public class FireGun : MonoBehaviour
             hit.transform.TryGetComponent(out ReactToHit react);
             if (react is not null)
             {
-                react.React();
+                react.React(hit);
             }
         }
     }
