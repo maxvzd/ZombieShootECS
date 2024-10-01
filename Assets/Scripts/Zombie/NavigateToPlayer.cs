@@ -1,22 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class NavigateToPlayer : MonoBehaviour
+namespace Zombie
 {
-    [SerializeField] private Transform player;
-    private NavMeshAgent _navMeshAgent;
+    public class NavigateToPlayer : MonoBehaviour
+    {
+        [SerializeField] private Transform player;
+        private NavMeshAgent _navMeshAgent;
+        private Animator _animator;
     
-    // Start is called before the first frame update
-    private void Start()
-    {
-        _navMeshAgent = GetComponent<NavMeshAgent>();
-    }
+        private void Start()
+        {
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _animator = GetComponent<Animator>();
+        }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        _navMeshAgent.destination = player.position;
+        private void Update()
+        {
+            _navMeshAgent.destination = player.position;
+            _animator.SetFloat(Constants.Speed, _navMeshAgent.velocity.magnitude);
+        }
     }
 }
