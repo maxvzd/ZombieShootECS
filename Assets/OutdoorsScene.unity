@@ -4988,6 +4988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2116006885}
+  - component: {fileID: 2116006886}
   m_Layer: 0
   m_Name: Zombie1 Root
   m_TagString: Untagged
@@ -5013,6 +5014,18 @@ Transform:
   - {fileID: 376454065}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2116006886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116006884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afa332cf6484193b98f7d9fbc03d58d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2117584128
 GameObject:
   m_ObjectHideFlags: 0
@@ -5948,6 +5961,7 @@ GameObject:
   - component: {fileID: 2566083444418220442}
   - component: {fileID: 2566083444418220441}
   - component: {fileID: 2566083444418220443}
+  - component: {fileID: 2566083444418220444}
   m_Layer: 9
   m_Name: Base HumanRFoot
   m_TagString: Untagged
@@ -6228,6 +6242,7 @@ GameObject:
   - component: {fileID: 3312264253738276598}
   - component: {fileID: 3312264253738276597}
   - component: {fileID: 3312264253738276599}
+  - component: {fileID: 3312264253738276600}
   m_Layer: 9
   m_Name: Base HumanLLegCalf
   m_TagString: Untagged
@@ -7078,6 +7093,7 @@ GameObject:
   - component: {fileID: 3989546061127798405}
   - component: {fileID: 3989546061127798404}
   - component: {fileID: 3989546061127798406}
+  - component: {fileID: 3989546061127798407}
   m_Layer: 9
   m_Name: Base HumanLArmForearm
   m_TagString: Untagged
@@ -7140,6 +7156,7 @@ GameObject:
   - component: {fileID: 6195574577717041448}
   - component: {fileID: 6195574577717041447}
   - component: {fileID: 6195574577717041449}
+  - component: {fileID: 6195574577717041450}
   m_Layer: 9
   m_Name: Base HumanRThigh
   m_TagString: Untagged
@@ -7334,6 +7351,7 @@ GameObject:
   - component: {fileID: 6697741322304249418}
   - component: {fileID: 6697741322304249417}
   - component: {fileID: 6697741322304249419}
+  - component: {fileID: 6697741322304249420}
   m_Layer: 9
   m_Name: Base HumanLLegThigh
   m_TagString: Untagged
@@ -7454,6 +7472,7 @@ GameObject:
   - component: {fileID: 3095270378452151500}
   - component: {fileID: 3095270378452151499}
   - component: {fileID: 3095270378452151501}
+  - component: {fileID: 3095270378452151502}
   m_Layer: 9
   m_Name: Base HumanPelvis
   m_TagString: Untagged
@@ -7474,6 +7493,7 @@ GameObject:
   - component: {fileID: 8195457672482314573}
   - component: {fileID: 8195457672482314572}
   - component: {fileID: 8195457672482314575}
+  - component: {fileID: 8195457672482314576}
   m_Layer: 9
   m_Name: Base HumanHead
   m_TagString: Untagged
@@ -7859,6 +7879,7 @@ GameObject:
   - component: {fileID: 2077893250023507886}
   - component: {fileID: 2077893250023507885}
   - component: {fileID: 2077893250023507887}
+  - component: {fileID: 2077893250023507888}
   m_Layer: 9
   m_Name: Base HumanLLegFoot
   m_TagString: Untagged
@@ -8007,6 +8028,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2077893250023507888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077893250023507884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.1
+  limbName: Left foot
 --- !u!23 &2086612169199314937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8592,6 +8628,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2566083444418220444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597747401818438894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.1
+  limbName: Right foot
 --- !u!33 &2586421063044290276
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -8671,6 +8722,7 @@ GameObject:
   - component: {fileID: 3660009024917922461}
   - component: {fileID: 3660009024917922460}
   - component: {fileID: 3660009024917922463}
+  - component: {fileID: 3660009024917922464}
   m_Layer: 9
   m_Name: Base HumanLArmPalm
   m_TagString: Untagged
@@ -9242,6 +9294,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3095270378452151502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836615893735962892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 1
+  limbDamageModifier: 0.8
+  limbName: Pelvis
 --- !u!1 &3117839698348768447
 GameObject:
   m_ObjectHideFlags: 0
@@ -9255,6 +9322,7 @@ GameObject:
   - component: {fileID: 3117839698348768450}
   - component: {fileID: 3117839698348768449}
   - component: {fileID: 3117839698348768451}
+  - component: {fileID: 3117839698348768452}
   m_Layer: 9
   m_Name: Base HumanRArmUpperarm
   m_TagString: Untagged
@@ -9426,6 +9494,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3117839698348768452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117839698348768447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.5
+  limbName: Right upper arm
 --- !u!23 &3129834372498589422
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9714,6 +9797,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3312264253738276600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718708696715365350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.5
+  limbName: Left calf
 --- !u!33 &3347163017520258145
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9735,6 +9833,7 @@ GameObject:
   - component: {fileID: 3355302367031184986}
   - component: {fileID: 3355302367031184985}
   - component: {fileID: 3355302367031184987}
+  - component: {fileID: 3355302367031184988}
   m_Layer: 9
   m_Name: Base HumanRArmForearm
   m_TagString: Untagged
@@ -9906,6 +10005,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3355302367031184988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355302367031184983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.5
+  limbName: Right fore arm
 --- !u!1 &3383904398865884793
 GameObject:
   m_ObjectHideFlags: 0
@@ -10521,6 +10635,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3660009024917922464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2656270106734496921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.1
+  limbName: Left hand
 --- !u!33 &3666604668265167760
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10967,6 +11096,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3989546061127798407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477319741742233422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.5
+  limbName: Left fore arm
 --- !u!4 &4031657029067018679
 Transform:
   m_ObjectHideFlags: 0
@@ -13199,6 +13343,7 @@ GameObject:
   - component: {fileID: 5542661683370600905}
   - component: {fileID: 5542661683370600904}
   - component: {fileID: 5542661683370600906}
+  - component: {fileID: 5542661683370600907}
   m_Layer: 9
   m_Name: Base HumanRCalf
   m_TagString: Untagged
@@ -13370,6 +13515,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5542661683370600907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5542661683370600902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.5
+  limbName: Right calf
 --- !u!23 &5551131268791000986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14015,6 +14175,7 @@ GameObject:
   - component: {fileID: 7849909225925508485}
   - component: {fileID: 7849909225925508484}
   - component: {fileID: 7849909225925508487}
+  - component: {fileID: 7849909225925508488}
   m_Layer: 9
   m_Name: Base HumanRArmPalm
   m_TagString: Untagged
@@ -14501,6 +14662,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6195574577717041450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548363270225417030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.5
+  limbName: Right thigh
 --- !u!33 &6205074953138690336
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -15267,6 +15443,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6697741322304249420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696191642773537487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.5
+  limbName: Left thigh
 --- !u!23 &6711497431723139625
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16228,6 +16419,7 @@ GameObject:
   - component: {fileID: 7478079058925518479}
   - component: {fileID: 7478079058925518478}
   - component: {fileID: 7478079058925518480}
+  - component: {fileID: 7478079058925518481}
   m_Layer: 9
   m_Name: Base HumanSpine2
   m_TagString: Untagged
@@ -16397,6 +16589,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7478079058925518481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7478079058925518476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 1
+  limbDamageModifier: 0.8
+  limbName: Torso
 --- !u!4 &7485591525209001519
 Transform:
   m_ObjectHideFlags: 0
@@ -16425,6 +16632,7 @@ GameObject:
   - component: {fileID: 7532005086177758190}
   - component: {fileID: 7532005086177758189}
   - component: {fileID: 7532005086177758191}
+  - component: {fileID: 7532005086177758192}
   m_Layer: 9
   m_Name: Base HumanLArmUpperarm
   m_TagString: Untagged
@@ -16596,6 +16804,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7532005086177758192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7532005086177758187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.5
+  limbName: Left upper arm
 --- !u!1 &7537604040330788977
 GameObject:
   m_ObjectHideFlags: 0
@@ -17238,6 +17461,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7849909225925508488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5931361789204101621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 0
+  limbDamageModifier: 0.1
+  limbName: Right hand
 --- !u!33 &7880066564683752811
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -17770,6 +18008,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8195457672482314576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840469243149828878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLethal: 1
+  limbDamageModifier: 10
+  limbName: Head
 --- !u!4 &8222537194786784633
 Transform:
   m_ObjectHideFlags: 0

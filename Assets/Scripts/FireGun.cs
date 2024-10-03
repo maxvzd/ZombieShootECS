@@ -33,10 +33,10 @@ public class FireGun : MonoBehaviour
         //Debug.DrawRay(muzzleTransform, -transform.forward * props.EffectiveRange, Color.green, 1f);
         if (Physics.Raycast(ray, out RaycastHit hit, props.EffectiveRange))
         {
-            hit.transform.TryGetComponent(out ReceiveDamage receiveDamage);
+            hit.transform.TryGetComponent(out LimbHealth receiveDamage);
             if (receiveDamage is not null)
             {
-                receiveDamage.Receive();
+                receiveDamage.Receive(props.Damage, hit.point);
             }
             
             hit.transform.TryGetComponent(out ReactToHit react);
