@@ -528,8 +528,8 @@ GameObject:
   - component: {fileID: 8292602445280505488}
   - component: {fileID: 9084133980877859182}
   - component: {fileID: 1506339209237554661}
-  - component: {fileID: 5845925737162287599}
   - component: {fileID: 733200107297174257}
+  - component: {fileID: 3417532117133318931}
   m_Layer: 8
   m_Name: Zombie1
   m_TagString: Untagged
@@ -622,19 +622,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &5845925737162287599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369164355597729721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ec1c1bf846fbef4c842afd117a8e011, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &733200107297174257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,6 +632,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84738f20c95a4fc3890561254e52d396, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3417532117133318931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369164355597729721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac0fd39566c468abc88c703d1561430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1461402967000858239
@@ -4129,7 +4128,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5657262067406027225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.99990034, z: -0, w: -0.014120332}
+  m_LocalRotation: {x: 0, y: 0.99990034, z: 0, w: 0.014119288}
   m_LocalPosition: {x: -0.14233208, y: 0.049999952, z: 2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4138,7 +4137,7 @@ Transform:
   - {fileID: 5602280416380575438}
   - {fileID: 856372450608952214}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 178.382, z: 0}
 --- !u!114 &2245020679712719269
 MonoBehaviour:
   m_ObjectHideFlags: 0

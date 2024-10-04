@@ -3617,11 +3617,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie1 Root
       objectReference: {fileID: 0}
-    - target: {fileID: 5845925737162287599, guid: 67fbbf26df77a23459a2193ec4a4af35,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 629144246}
     - target: {fileID: 6895122948910337702, guid: 67fbbf26df77a23459a2193ec4a4af35,
         type: 3}
       propertyPath: m_LocalPosition.x

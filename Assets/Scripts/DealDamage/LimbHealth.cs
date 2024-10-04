@@ -36,7 +36,6 @@ namespace DealDamage
             
             _health -= damageWithModifier;
             _health = Mathf.Max(0, _health);
-            Debug.Log($"You hit my {limbName} for {damageWithModifier}");
 
             if (deathEffect is not null && _health <= 0)
             {
