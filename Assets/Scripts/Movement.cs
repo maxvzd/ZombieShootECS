@@ -16,13 +16,13 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        float inputX = Input.GetAxis(Constants.VerticalKey) * Time.deltaTime * walkSpeed;
-        float inputY = Input.GetAxis(Constants.HorizontalKey) * Time.deltaTime * walkSpeed;
-
-        var cameraTransform = mainCamera.transform;
-        Vector3 desiredDirection = inputX * cameraTransform.forward + inputY * cameraTransform.right;
-        desiredDirection.y = 0;
-
-        _controller.Move(desiredDirection);
+         float inputX = Input.GetAxis(Constants.VerticalKey) * walkSpeed;
+         float inputY = Input.GetAxis(Constants.HorizontalKey) * walkSpeed;
+        
+         var cameraTransform = mainCamera.transform;
+         Vector3 desiredDirection = inputX * cameraTransform.forward + inputY * cameraTransform.right;
+         desiredDirection.y = -9.81f;
+        
+         _controller.Move(desiredDirection * Time.deltaTime);
     }
 }

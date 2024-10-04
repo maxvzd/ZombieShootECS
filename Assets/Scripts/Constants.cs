@@ -7,4 +7,5 @@
     
     public static readonly string Fire1Key = "Fire1";
     public static readonly string Fire2Key = "Fire2";
+    public static readonly string SpawnKey = "Spawn";
 }

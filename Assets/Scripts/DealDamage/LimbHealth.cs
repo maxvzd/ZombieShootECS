@@ -13,8 +13,9 @@ namespace DealDamage
         [SerializeField] private LimbDeathEffect deathEffect;
         [SerializeField] private string limbName;
 
-        private bool _deathEffectApplied;
         private float _health = 100f;
+        public bool zombieIsDead;
+        private bool _limbIsDead;
 
         public delegate void LimbHitEventHandler(object sender, HitEventArgs e);
 
@@ -22,20 +23,25 @@ namespace DealDamage
 
         public void Receive(float damage, Vector3 hitLocation)
         {
+            if (zombieIsDead) return;
+            
             float damageWithModifier = damage * limbDamageModifier;
-            _health -= damageWithModifier;
-            _health = Mathf.Max(0, _health);
-            Debug.Log($"You hit my {limbName} for {damageWithModifier}");
-
-            if (deathEffect is not null && _health <= 0 && !_deathEffectApplied)
-            {
-                deathEffect.Apply();
-                _deathEffectApplied = true;
-            }
             
             if (isLethal)
             {
                 LimbHit?.Invoke(this, new HitEventArgs(damageWithModifier, hitLocation, limbName));
+            }
+
+            if (_limbIsDead) return;
+            
+            _health -= damageWithModifier;
+            _health = Mathf.Max(0, _health);
+            Debug.Log($"You hit my {limbName} for {damageWithModifier}");
+
+            if (deathEffect is not null && _health <= 0)
+            {
+                deathEffect.Apply();
+                _limbIsDead = true;
             }
         }
     }

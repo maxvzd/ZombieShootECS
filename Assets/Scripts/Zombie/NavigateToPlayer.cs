@@ -5,7 +5,6 @@ namespace Zombie
 {
     public class NavigateToPlayer : MonoBehaviour
     {
-        [SerializeField] private Transform player;
         private NavMeshAgent _navMeshAgent;
         
         private void Start()
@@ -15,7 +14,9 @@ namespace Zombie
 
         private void Update()
         {
-            _navMeshAgent.destination = player.position;
+            if (!_navMeshAgent.enabled) return;
+            
+            _navMeshAgent.destination = PlayerReference.Player.position;
         }
     }
 }

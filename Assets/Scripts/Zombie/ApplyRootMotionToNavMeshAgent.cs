@@ -31,6 +31,8 @@ namespace Zombie
 
         private void SynchroniseAnimatorAndAgent()
         {
+            if (!_navMeshAgent.enabled) return;
+            
             if (_navMeshAgent.remainingDistance >= _navMeshAgent.stoppingDistance)
             {
                 _t += Time.deltaTime;
