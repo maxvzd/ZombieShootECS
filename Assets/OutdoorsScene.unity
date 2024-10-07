@@ -3772,15 +3772,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7154860870820121272, guid: 67fbbf26df77a23459a2193ec4a4af35,
+    - target: {fileID: 7181623093199126121, guid: 67fbbf26df77a23459a2193ec4a4af35,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: pinPow
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 7154860870820121272, guid: 67fbbf26df77a23459a2193ec4a4af35,
+    - target: {fileID: 7181623093199126121, guid: 67fbbf26df77a23459a2193ec4a4af35,
         type: 3}
-      propertyPath: collisionResistance.floatValue
-      value: 15
+      propertyPath: muscleSpring
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7181623093199126121, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: pinDistanceFalloff
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

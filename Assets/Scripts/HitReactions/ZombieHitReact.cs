@@ -19,7 +19,8 @@ namespace HitReactions
         {
             Debug.DrawRay(hit.point, hit.normal * 0.1f, Color.green, 1f);
             
-            _collisionBroadcaster.Hit(10, damageDirection * 10, hit.point);
+            _collisionBroadcaster.Hit(1000, damageDirection * 1000, hit.point);
+            //_collisionBroadcaster.Hit(50, -transform.up * 10, hit.point);
         } 
     }
 }
