@@ -4,6 +4,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using DealDamage;
 using HitReactions;
+using RootMotion.Dynamics;
 
 public class FireGun : MonoBehaviour
 {
@@ -33,6 +34,8 @@ public class FireGun : MonoBehaviour
         //Debug.DrawRay(muzzleTransform, -transform.forward * props.EffectiveRange, Color.green, 1f);
         if (Physics.Raycast(ray, out RaycastHit hit, props.EffectiveRange))
         {
+            Debug.DrawRay(ray.origin, ray.direction * 10f, Color.green, 1f);
+            
             hit.transform.TryGetComponent(out LimbHealth receiveDamage);
             if (receiveDamage is not null)
             {
@@ -42,7 +45,7 @@ public class FireGun : MonoBehaviour
             hit.transform.TryGetComponent(out ReactToHit react);
             if (react is not null)
             {
-                react.React(hit);
+                react.React(hit, ray.direction);
             }
         }
     }

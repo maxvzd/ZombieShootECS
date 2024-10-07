@@ -38,7 +38,7 @@ namespace DealDamage
             
             if (_health <= 0)
             {
-                Die();
+                //Die();
             }
         }
 

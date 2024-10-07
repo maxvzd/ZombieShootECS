@@ -1,4 +1,5 @@
 ﻿using System;
+using RootMotion.Dynamics;
 using UnityEngine;
 
 namespace HitReactions
@@ -6,17 +7,19 @@ namespace HitReactions
     public class ZombieHitReact : ReactToHit
     {
         private Rigidbody _rigidBody;
-
+        private MuscleCollisionBroadcaster _collisionBroadcaster;
+  
         public void Start()
         {
-            
             _rigidBody = GetComponent<Rigidbody>();
+            _collisionBroadcaster = _rigidBody.GetComponent<MuscleCollisionBroadcaster>();
         }
 
-        public override void React(RaycastHit hit)
+        public override void React(RaycastHit hit, Vector3 damageDirection)
         {
             Debug.DrawRay(hit.point, hit.normal * 0.1f, Color.green, 1f);
-            _rigidBody.AddForce(-hit.normal * 100, ForceMode.Impulse);
+            
+            _collisionBroadcaster.Hit(10, damageDirection * 10, hit.point);
         } 
     }
 }

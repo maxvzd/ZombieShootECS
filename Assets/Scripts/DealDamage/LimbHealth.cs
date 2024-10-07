@@ -29,13 +29,13 @@ namespace DealDamage
             
             if (isLethal)
             {
-                LimbHit?.Invoke(this, new HitEventArgs(damageWithModifier, hitLocation, limbName));
+                //LimbHit?.Invoke(this, new HitEventArgs(damageWithModifier, hitLocation, limbName));
             }
 
             if (_limbIsDead) return;
             
-            _health -= damageWithModifier;
-            _health = Mathf.Max(0, _health);
+            //_health -= damageWithModifier;
+            //_health = Mathf.Max(0, _health);
 
             if (deathEffect is not null && _health <= 0)
             {

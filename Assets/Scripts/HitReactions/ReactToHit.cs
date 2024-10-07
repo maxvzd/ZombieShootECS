@@ -1,12 +1,11 @@
-﻿using UnityEngine;
+﻿using System;
+using RootMotion.Dynamics;
+using UnityEngine;
 
 namespace HitReactions
 {
-    public class ReactToHit : MonoBehaviour
+    public abstract class ReactToHit : MonoBehaviour
     {
-         public virtual void React(RaycastHit hit)
-        {
-            
-        }
+        public abstract void React(RaycastHit hit, Vector3 damageDirection);
     }
 }

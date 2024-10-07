@@ -181,7 +181,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2412501268325725687}
   m_Father: {fileID: 6895122948910337702}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2377183371586355936
@@ -526,7 +527,6 @@ GameObject:
   m_Component:
   - component: {fileID: 856372450608952214}
   - component: {fileID: 8292602445280505488}
-  - component: {fileID: 9084133980877859182}
   - component: {fileID: 1506339209237554661}
   - component: {fileID: 733200107297174257}
   - component: {fileID: 3417532117133318931}
@@ -588,18 +588,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &9084133980877859182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369164355597729721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1421b36e966648a195f19891479c4f77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &1506339209237554661
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -646,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac0fd39566c468abc88c703d1561430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTreeEnabled: 1
 --- !u!1 &1461402967000858239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,21 +1950,21 @@ MonoBehaviour:
     enableAngularLimitsOnKill: 1
     enableInternalCollisionsOnKill: 0
   mode: 0
-  blendTime: 0.1
+  blendTime: 0.3
   fixTargetTransforms: 1
   solverIterationCount: 6
   visualizeTargetPose: 1
   mappingWeight: 1
   pinWeight: 1
   muscleWeight: 1
-  muscleSpring: 50
-  muscleDamper: 100
+  muscleSpring: 30
+  muscleDamper: 1
   pinPow: 4
   pinDistanceFalloff: 5
   angularPinning: 0
   updateJointAnchors: 1
   supportTranslationAnimation: 0
-  angularLimits: 0
+  angularLimits: 1
   internalCollisions: 0
   muscles:
   - name: Base HumanPelvis
@@ -5722,6 +5711,209 @@ MonoBehaviour:
   limbDamageModifier: 0.5
   limbName: Left fore arm
   zombieIsDead: 0
+--- !u!1 &7868360270724142931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2412501268325725687}
+  - component: {fileID: 7154860870820121272}
+  m_Layer: 0
+  m_Name: Puppet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2412501268325725687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868360270724142931}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7635365422073381655}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7154860870820121272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7868360270724142931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efacf79ab4214e85aeebfd07064c20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puppetMaster: {fileID: 0}
+  deactivated: 0
+  masterProps:
+    normalMode: 0
+    mappingBlendSpeed: 10
+    activateOnStaticCollisions: 0
+    activateOnImpulse: 0
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  collisionThreshold: 0
+  collisionResistance:
+    mode: 0
+    floatValue: 15
+    curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    tooltip: Smaller value means more unpinning from collisions so the characters
+      get knocked out more easily. If using a curve, the value will be evaluated
+      by each muscle's target velocity magnitude. This can be used to make collision
+      resistance higher while the character moves or animates faster.
+  collisionResistanceMultipliers: []
+  maxCollisions: 30
+  regainPinSpeed: 1.5
+  boostFalloff: 1
+  defaults:
+    unpinParents: 1
+    unpinChildren: 1
+    unpinGroup: 0
+    minMappingWeight: 0
+    maxMappingWeight: 1
+    minPinWeight: 0
+    disableColliders: 0
+    regainPinSpeed: 0.1
+    collisionResistance: 1
+    knockOutDistance: 0.7
+    puppetMaterial: {fileID: 0}
+    unpinnedMaterial: {fileID: 0}
+  groupOverrides:
+  - name: Hips, Leg
+    groups: 0000000005000000
+    props:
+      unpinParents: 0.9
+      unpinChildren: 0.9
+      unpinGroup: 0
+      minMappingWeight: 0
+      maxMappingWeight: 1
+      minPinWeight: 0
+      disableColliders: 0
+      regainPinSpeed: 0.6
+      collisionResistance: 1
+      knockOutDistance: 0.4
+      puppetMaterial: {fileID: 0}
+      unpinnedMaterial: {fileID: 0}
+  - name: Head
+    groups: 02000000
+    props:
+      unpinParents: 1
+      unpinChildren: 1
+      unpinGroup: 0
+      minMappingWeight: 0
+      maxMappingWeight: 1
+      minPinWeight: 0
+      disableColliders: 0
+      regainPinSpeed: 0.3
+      collisionResistance: 1
+      knockOutDistance: 0.4
+      puppetMaterial: {fileID: 0}
+      unpinnedMaterial: {fileID: 0}
+  - name: Arm, Hand
+    groups: 0300000004000000
+    props:
+      unpinParents: 1
+      unpinChildren: 1
+      unpinGroup: 0
+      minMappingWeight: 0
+      maxMappingWeight: 1
+      minPinWeight: 0
+      disableColliders: 0
+      regainPinSpeed: 0.3
+      collisionResistance: 1
+      knockOutDistance: 100
+      puppetMaterial: {fileID: 0}
+      unpinnedMaterial: {fileID: 0}
+  - name: Foot
+    groups: 06000000
+    props:
+      unpinParents: 0.7
+      unpinChildren: 0
+      unpinGroup: 0
+      minMappingWeight: 0
+      maxMappingWeight: 1
+      minPinWeight: 0
+      disableColliders: 0
+      regainPinSpeed: 1
+      collisionResistance: 1
+      knockOutDistance: 0.5
+      puppetMaterial: {fileID: 0}
+      unpinnedMaterial: {fileID: 0}
+  knockOutDistance: 1.2
+  unpinnedMuscleWeightMlp: 0.5
+  maxRigidbodyVelocity: 100
+  pinWeightThreshold: 1
+  unpinnedMuscleKnockout: 0
+  dropProps: 0
+  canGetUp: 0
+  getUpDelay: 5
+  blendToAnimationTime: 0.2
+  maxGetUpVelocity: 0.3
+  minGetUpDuration: 1
+  getUpCollisionResistanceMlp: 2
+  getUpRegainPinSpeedMlp: 2
+  getUpKnockOutDistanceMlp: 10
+  getUpOffsetProne: {x: 0, y: 0, z: 0}
+  getUpOffsetSupine: {x: 0, y: 0, z: 0}
+  isQuadruped: 0
+  onGetUpProne:
+    switchToBehaviour: 
+    animations: []
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  onGetUpSupine:
+    switchToBehaviour: 
+    animations: []
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  onLoseBalance:
+    switchToBehaviour: 
+    animations: []
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  onLoseBalanceFromPuppet:
+    switchToBehaviour: 
+    animations: []
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  onLoseBalanceFromGetUp:
+    switchToBehaviour: 
+    animations: []
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  onRegainBalance:
+    switchToBehaviour: 
+    animations: []
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  canMoveTarget: 1
 --- !u!1 &8010134289483516160
 GameObject:
   m_ObjectHideFlags: 0
