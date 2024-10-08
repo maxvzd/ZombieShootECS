@@ -7,24 +7,29 @@ namespace DealDamage
 {
     public class MainHealthScript : MonoBehaviour
     {
+        [SerializeField] private AudioClip bulletImpactSound;
+        
         private PuppetMaster _ragdoll;
         private NavMeshAgent _navMeshAgent;
         private LimbHealth[] _limbs;
-        
+
         public float Health => _health;
 
         private float _health = 100f;
         private bool _isDead;
-        
-        
+
         private void Start()
         {
             _ragdoll = GetComponentInChildren<PuppetMaster>();
             _navMeshAgent = GetComponentInChildren<NavMeshAgent>();
+
+            AudioSource audioSource = GetComponent<AudioSource>();
             
             _limbs = GetComponentsInChildren<LimbHealth>();
             foreach (LimbHealth limb in _limbs)
             {
+                limb.SetAudioSource(audioSource);
+                limb.AddBulletImpactSound(bulletImpactSound);
                 limb.LimbHit += OnLimbHit;
             }
         }
@@ -38,7 +43,7 @@ namespace DealDamage
             
             if (_health <= 0)
             {
-                //Die();
+                Die();
             }
         }
 
@@ -53,5 +58,6 @@ namespace DealDamage
                 limb.zombieIsDead = true;
             }
         }
+
     }
 }

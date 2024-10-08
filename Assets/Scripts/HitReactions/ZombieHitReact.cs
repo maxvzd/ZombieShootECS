@@ -1,5 +1,4 @@
-﻿using System;
-using RootMotion.Dynamics;
+﻿using RootMotion.Dynamics;
 using UnityEngine;
 
 namespace HitReactions
@@ -17,10 +16,11 @@ namespace HitReactions
 
         public override void React(RaycastHit hit, Vector3 damageDirection)
         {
-            Debug.DrawRay(hit.point, hit.normal * 0.1f, Color.green, 1f);
+            //Debug.DrawRay(hit.point, hit.normal * 0.1f, Color.green, 1f);
             
             _collisionBroadcaster.Hit(1000, damageDirection * 1000, hit.point);
-            //_collisionBroadcaster.Hit(50, -transform.up * 10, hit.point);
+            
+            SpawnBlood.Instance.Create(hit.point, damageDirection * -1f);
         } 
     }
 }
