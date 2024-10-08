@@ -5952,26 +5952,11 @@ MonoBehaviour:
       knockOutDistance: 100
       puppetMaterial: {fileID: 0}
       unpinnedMaterial: {fileID: 0}
-  - name: Hips, Leg
-    groups: 0000000005000000
+  - name: Hips
+    groups: 00000000
     props:
       unpinParents: 0
       unpinChildren: 0.2
-      unpinGroup: 0
-      minMappingWeight: 0
-      maxMappingWeight: 1
-      minPinWeight: 0
-      disableColliders: 0
-      regainPinSpeed: 1
-      collisionResistance: 100
-      knockOutDistance: 0.4
-      puppetMaterial: {fileID: 0}
-      unpinnedMaterial: {fileID: 0}
-  - name: Foot
-    groups: 06000000
-    props:
-      unpinParents: 0.2
-      unpinChildren: 0
       unpinGroup: 0
       minMappingWeight: 0
       maxMappingWeight: 1
@@ -5982,11 +5967,26 @@ MonoBehaviour:
       knockOutDistance: 0.5
       puppetMaterial: {fileID: 0}
       unpinnedMaterial: {fileID: 0}
+  - name: Foot, Leg
+    groups: 0600000005000000
+    props:
+      unpinParents: 0.2
+      unpinChildren: 0.75
+      unpinGroup: 0
+      minMappingWeight: 0
+      maxMappingWeight: 1
+      minPinWeight: 0
+      disableColliders: 0
+      regainPinSpeed: 1
+      collisionResistance: 10
+      knockOutDistance: 0.03
+      puppetMaterial: {fileID: 0}
+      unpinnedMaterial: {fileID: 0}
   knockOutDistance: 1.2
   unpinnedMuscleWeightMlp: 0.5
   maxRigidbodyVelocity: 10
-  pinWeightThreshold: 0
-  unpinnedMuscleKnockout: 0
+  pinWeightThreshold: 1
+  unpinnedMuscleKnockout: 1
   dropProps: 0
   canGetUp: 0
   getUpDelay: 5
