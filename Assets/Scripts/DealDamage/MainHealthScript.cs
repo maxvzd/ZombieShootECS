@@ -1,5 +1,4 @@
-﻿using System;
-using RootMotion.Dynamics;
+﻿using RootMotion.Dynamics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +16,7 @@ namespace DealDamage
 
         private float _health = 100f;
         private bool _isDead;
+        private BehaviourPuppet _puppet;
 
         private void Start()
         {
@@ -24,13 +24,22 @@ namespace DealDamage
             _navMeshAgent = GetComponentInChildren<NavMeshAgent>();
 
             AudioSource audioSource = GetComponent<AudioSource>();
+            _puppet = GetComponentInChildren<BehaviourPuppet>();
             
             _limbs = GetComponentsInChildren<LimbHealth>();
             foreach (LimbHealth limb in _limbs)
             {
-                limb.SetAudioSource(audioSource);
-                limb.AddBulletImpactSound(bulletImpactSound);
+                limb.SetupLimb(audioSource, bulletImpactSound);
                 limb.LimbHit += OnLimbHit;
+                limb.LimbCrippled += OnLimbCrippled;
+            }
+        }
+
+        private void OnLimbCrippled(object sender, LimbCrippledEventArgs e)
+        {
+            if (sender is LimbHealth limb)
+            {
+                e.DeathEffect.Apply(_puppet);
             }
         }
 

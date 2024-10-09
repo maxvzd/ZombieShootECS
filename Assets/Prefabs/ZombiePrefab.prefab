@@ -945,9 +945,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.1
-  limbName: Right foot
+  deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
+  limbType: 11
   zombieIsDead: 0
 --- !u!1 &1963284995024584413
 GameObject:
@@ -1555,9 +1555,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.5
-  limbName: Left thigh
+  deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
+  limbType: 12
   zombieIsDead: 0
 --- !u!1 &2403733138904047538
 GameObject:
@@ -1889,9 +1889,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.5
-  limbName: Right thigh
+  deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
+  limbType: 9
   zombieIsDead: 0
 --- !u!1 &2760834400652640036
 GameObject:
@@ -3297,9 +3297,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 1
   limbDamageModifier: 0.8
-  limbName: Torso
+  deathEffect: {fileID: 0}
+  limbType: 2
   zombieIsDead: 0
 --- !u!1 &4053844193806207303
 GameObject:
@@ -3709,9 +3709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.1
-  limbName: Left hand
+  deathEffect: {fileID: 11400000, guid: 6d548dbe386366f4abeea54abdca04c8, type: 2}
+  limbType: 8
   zombieIsDead: 0
 --- !u!1 &4761503519243346055
 GameObject:
@@ -3989,9 +3989,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.1
-  limbName: Right hand
+  deathEffect: {fileID: 11400000, guid: e65c470fa0ea0a7468c3cbdb7351df54, type: 2}
+  limbType: 5
   zombieIsDead: 0
 --- !u!1 &5165936988173860266
 GameObject:
@@ -5025,9 +5025,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.5
-  limbName: Right calf
+  deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
+  limbType: 10
   zombieIsDead: 0
 --- !u!1 &7007810721581464463
 GameObject:
@@ -5533,9 +5533,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.1
-  limbName: Left foot
+  deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
+  limbType: 14
   zombieIsDead: 0
 --- !u!1 &7739960088463707853
 GameObject:
@@ -5814,9 +5814,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.5
-  limbName: Left fore arm
+  deathEffect: {fileID: 11400000, guid: 6d548dbe386366f4abeea54abdca04c8, type: 2}
+  limbType: 7
   zombieIsDead: 0
 --- !u!1 &7868360270724142931
 GameObject:
@@ -5979,7 +5979,7 @@ MonoBehaviour:
       disableColliders: 0
       regainPinSpeed: 1
       collisionResistance: 10
-      knockOutDistance: 0.03
+      knockOutDistance: 0.1
       puppetMaterial: {fileID: 0}
       unpinnedMaterial: {fileID: 0}
   knockOutDistance: 1.2
@@ -5988,8 +5988,8 @@ MonoBehaviour:
   pinWeightThreshold: 1
   unpinnedMuscleKnockout: 1
   dropProps: 0
-  canGetUp: 0
-  getUpDelay: 5
+  canGetUp: 1
+  getUpDelay: 2
   blendToAnimationTime: 0.2
   maxGetUpVelocity: 0.3
   minGetUpDuration: 1
@@ -6001,19 +6001,31 @@ MonoBehaviour:
   isQuadruped: 0
   onGetUpProne:
     switchToBehaviour: 
-    animations: []
+    animations:
+    - animationState: GetUpProne
+      crossfadeTime: 0.2
+      layer: 0
+      resetNormalizedTime: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
   onGetUpSupine:
     switchToBehaviour: 
-    animations: []
+    animations:
+    - animationState: GetUpSupine
+      crossfadeTime: 0.2
+      layer: 0
+      resetNormalizedTime: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
   onLoseBalance:
     switchToBehaviour: 
-    animations: []
+    animations:
+    - animationState: Falling
+      crossfadeTime: 0.2
+      layer: 0
+      resetNormalizedTime: 0
     unityEvent:
       m_PersistentCalls:
         m_Calls: []
@@ -6311,9 +6323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.5
-  limbName: Right fore arm
+  deathEffect: {fileID: 11400000, guid: e65c470fa0ea0a7468c3cbdb7351df54, type: 2}
+  limbType: 4
   zombieIsDead: 0
 --- !u!1 &8226957422162963806
 GameObject:
@@ -6528,9 +6540,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.5
-  limbName: Left calf
+  deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
+  limbType: 13
   zombieIsDead: 0
 --- !u!1 &8289577954890568763
 GameObject:
@@ -6745,9 +6757,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 1
   limbDamageModifier: 0.8
-  limbName: Pelvis
+  deathEffect: {fileID: 0}
+  limbType: 1
   zombieIsDead: 0
 --- !u!1 &8480349539984824909
 GameObject:
@@ -6994,9 +7006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.5
-  limbName: Left upper arm
+  deathEffect: {fileID: 11400000, guid: 6d548dbe386366f4abeea54abdca04c8, type: 2}
+  limbType: 6
   zombieIsDead: 0
 --- !u!1 &8532666055298169910
 GameObject:
@@ -7274,9 +7286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 0
   limbDamageModifier: 0.5
-  limbName: Right upper arm
+  deathEffect: {fileID: 11400000, guid: e65c470fa0ea0a7468c3cbdb7351df54, type: 2}
+  limbType: 3
   zombieIsDead: 0
 --- !u!1 &8983631534727439315
 GameObject:
@@ -7490,9 +7502,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7ecf587d02450588113f00465312f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLethal: 1
   limbDamageModifier: 10
-  limbName: Head
+  deathEffect: {fileID: 0}
+  limbType: 0
   zombieIsDead: 0
 --- !u!1 &9011087778398117234
 GameObject:

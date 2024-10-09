@@ -3763,11 +3763,107 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1149194251928042714, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250528967621493205, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280348002194524974, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468218980429582956, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468218980429582956, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: e65c470fa0ea0a7468c3cbdb7351df54,
+        type: 2}
+    - target: {fileID: 2644607433577327275, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2644607433577327275, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d548dbe386366f4abeea54abdca04c8,
+        type: 2}
+    - target: {fileID: 3185293091509973449, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3185293091509973449, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: e65c470fa0ea0a7468c3cbdb7351df54,
+        type: 2}
+    - target: {fileID: 3781524816063402421, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391547141614524819, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4391547141614524819, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d548dbe386366f4abeea54abdca04c8,
+        type: 2}
+    - target: {fileID: 4995971149079490896, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5657262067406027225, guid: 67fbbf26df77a23459a2193ec4a4af35,
         type: 3}
       propertyPath: m_Name
       value: Zombie1 Root
       objectReference: {fileID: 0}
+    - target: {fileID: 5881491933780363754, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5881491933780363754, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: e65c470fa0ea0a7468c3cbdb7351df54,
+        type: 2}
+    - target: {fileID: 6140424283328293819, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232755998588260811, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6232755998588260811, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: deathEffect
+      value: 
+      objectReference: {fileID: 11400000, guid: 6d548dbe386366f4abeea54abdca04c8,
+        type: 2}
     - target: {fileID: 6895122948910337702, guid: 67fbbf26df77a23459a2193ec4a4af35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3817,6 +3913,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228080044425413387, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499039624955719932, guid: 67fbbf26df77a23459a2193ec4a4af35,
+        type: 3}
+      propertyPath: limbType
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

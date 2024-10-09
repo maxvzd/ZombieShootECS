@@ -1,63 +1,75 @@
 ﻿using System;
+using DealDamage.DeadLimbEffects;
+using RootMotion.Dynamics;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace DealDamage
 {
     public class LimbHealth : MonoBehaviour
     {
         public float Health => _health;
-        
-        [SerializeField] private bool isLethal;
+
+        //[SerializeField] private bool isLethal;
         [SerializeField] private float limbDamageModifier = 1f;
         [SerializeField] private LimbDeathEffect deathEffect;
-        [SerializeField] private string limbName;
-        
+        [SerializeField] private LimbType limbType;
+
         public bool zombieIsDead;
-        
+
         private float _health = 100f;
         private bool _limbIsDead;
-        
+
         private AudioSource _audioSource;
         private AudioClip _bulletImpactSound;
-        
+        private BehaviourPuppet _puppet;
+
         public delegate void LimbHitEventHandler(object sender, HitEventArgs e);
+
         public event LimbHitEventHandler LimbHit;
+
+        public delegate void LimbCrippledEventHandler(object sender, LimbCrippledEventArgs e);
+
+        public event LimbCrippledEventHandler LimbCrippled;
 
         public void Receive(float damage, Vector3 hitLocation)
         {
             _audioSource.clip = _bulletImpactSound;
             _audioSource.PlayDelayed(0.1f);
-            
+
             if (zombieIsDead) return;
-            
+
             float damageWithModifier = damage * limbDamageModifier;
             
-            if (isLethal)
-            {
-                LimbHit?.Invoke(this, new HitEventArgs(damageWithModifier, hitLocation, limbName));
-            }
+            //main health takes modified damage
+            LimbHit?.Invoke(this, new HitEventArgs(damageWithModifier, hitLocation, limbType));
 
             if (_limbIsDead) return;
-            
-            _health -= damageWithModifier;
+
+            //limb takes full damage
+            _health -= damage;
             _health = Mathf.Max(0, _health);
 
             if (deathEffect is not null && _health <= 0)
             {
-                deathEffect.Apply();
                 _limbIsDead = true;
+                LimbCrippled?.Invoke(this, new LimbCrippledEventArgs(deathEffect));
             }
         }
-        
-        public void SetAudioSource(AudioSource source)
+
+        private void SetAudioSource(AudioSource source)
         {
             _audioSource = source;
         }
 
-        public void AddBulletImpactSound(AudioClip bulletImpactSound)
+        private void AddBulletImpactSound(AudioClip bulletImpactSound)
         {
             _bulletImpactSound = bulletImpactSound;
+        }
+
+        public void SetupLimb(AudioSource source, AudioClip bulletImpactSound)
+        {
+            SetAudioSource(source);
+            AddBulletImpactSound(bulletImpactSound);
         }
     }
 
@@ -65,14 +77,43 @@ namespace DealDamage
     {
         public float Damage { get; }
         public Vector3 HitLocation { get; }
-        
-        public string LimbName { get; }
 
-        public HitEventArgs(float damage, Vector3 hitLocation, string limbName)
+        public LimbType LimbType { get; }
+
+        public HitEventArgs(float damage, Vector3 hitLocation, LimbType limbType)
         {
             Damage = damage;
             HitLocation = hitLocation;
-            LimbName = limbName;
+            LimbType = limbType;
         }
+    }
+
+    public class LimbCrippledEventArgs : EventArgs
+    {
+        public LimbCrippledEventArgs(LimbDeathEffect deathEffect)
+        {
+            DeathEffect = deathEffect;
+        }
+
+        public LimbDeathEffect DeathEffect { get; }
+    }
+
+    public enum LimbType
+    {
+        Head,
+        Pelvis,
+        Torso,
+        RightUpperArm,
+        RightLowerArm,
+        RightHand,
+        LeftUpperArm,
+        LeftLowerArm,
+        LeftHand,
+        RightThigh,
+        RightCalf,
+        RightFoot,
+        LeftThigh,
+        LeftCalf,
+        LeftFoot
     }
 }
