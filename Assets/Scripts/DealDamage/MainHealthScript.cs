@@ -1,4 +1,5 @@
-﻿using RootMotion.Dynamics;
+﻿using System.Collections;
+using RootMotion.Dynamics;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,6 +18,7 @@ namespace DealDamage
         private float _health = 100f;
         private bool _isDead;
         private BehaviourPuppet _puppet;
+        private Animator _animator;
 
         private void Start()
         {
@@ -25,6 +27,9 @@ namespace DealDamage
 
             AudioSource audioSource = GetComponent<AudioSource>();
             _puppet = GetComponentInChildren<BehaviourPuppet>();
+            _animator = GetComponentInChildren<Animator>();
+
+            _puppet.onLoseBalanceFromPuppet.unityEvent.AddListener(CheckIfZombieIsUpRight);
             
             _limbs = GetComponentsInChildren<LimbHealth>();
             foreach (LimbHealth limb in _limbs)
@@ -39,7 +44,7 @@ namespace DealDamage
         {
             if (sender is LimbHealth limb)
             {
-                e.DeathEffect.Apply(_puppet);
+                e.DeathEffect.Apply(_puppet, _animator);
             }
         }
 
@@ -68,5 +73,20 @@ namespace DealDamage
             }
         }
 
+        private void CheckIfZombieIsUpRight()
+        {
+            _puppet.canGetUp = true;
+            StartCoroutine(CheckIfZombieIsUpRightCoroutine());
+        }
+
+        private IEnumerator CheckIfZombieIsUpRightCoroutine()
+        {
+            yield return new WaitForSeconds(_puppet.getUpDelay - 0.2f);
+
+            if (!_puppet.IsProne())
+            {
+                _puppet.canGetUp = false;
+            }
+        }
     }
 }

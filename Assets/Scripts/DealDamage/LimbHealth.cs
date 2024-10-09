@@ -14,6 +14,7 @@ namespace DealDamage
         [SerializeField] private LimbDeathEffect deathEffect;
         [SerializeField] private LimbType limbType;
 
+        public LimbType LimbType => limbType;
         public bool zombieIsDead;
 
         private float _health = 100f;
@@ -103,17 +104,9 @@ namespace DealDamage
         Head,
         Pelvis,
         Torso,
-        RightUpperArm,
-        RightLowerArm,
-        RightHand,
-        LeftUpperArm,
-        LeftLowerArm,
-        LeftHand,
-        RightThigh,
-        RightCalf,
-        RightFoot,
-        LeftThigh,
-        LeftCalf,
-        LeftFoot
+        RightArm,
+        LeftArm,
+        RightLeg,
+        LeftLeg
     }
 }

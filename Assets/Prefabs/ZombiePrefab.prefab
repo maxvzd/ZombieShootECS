@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ac0fd39566c468abc88c703d1561430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTreeEnabled: 1
+  isAiEnabled: 1
 --- !u!1 &1461402967000858239
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,7 +947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.1
   deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
-  limbType: 11
+  limbType: 5
   zombieIsDead: 0
 --- !u!1 &1963284995024584413
 GameObject:
@@ -1557,7 +1557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.5
   deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
-  limbType: 12
+  limbType: 6
   zombieIsDead: 0
 --- !u!1 &2403733138904047538
 GameObject:
@@ -1891,7 +1891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.5
   deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
-  limbType: 9
+  limbType: 5
   zombieIsDead: 0
 --- !u!1 &2760834400652640036
 GameObject:
@@ -3169,7 +3169,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.42651823, y: 0.21307619, z: 0.35512698}
+  m_Size: {x: 0.29, y: 0.18, z: 0.26}
   m_Center: {x: -0.19368789, y: 0.008445625, z: -0.000000048627555}
 --- !u!153 &1013647372601056243
 ConfigurableJoint:
@@ -3579,7 +3579,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.07678805
+  m_Radius: 0.03
   m_Height: 0.22524495
   m_Direction: 0
   m_Center: {x: -0.102384515, y: 0.00000006332995, z: -0.00000023469329}
@@ -3711,7 +3711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.1
   deathEffect: {fileID: 11400000, guid: 6d548dbe386366f4abeea54abdca04c8, type: 2}
-  limbType: 8
+  limbType: 4
   zombieIsDead: 0
 --- !u!1 &4761503519243346055
 GameObject:
@@ -3859,7 +3859,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.07678806
+  m_Radius: 0.03
   m_Height: 0.22524498
   m_Direction: 0
   m_Center: {x: -0.10238421, y: -0.000000029802322, z: -0.0000000782311}
@@ -3991,7 +3991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.1
   deathEffect: {fileID: 11400000, guid: e65c470fa0ea0a7468c3cbdb7351df54, type: 2}
-  limbType: 5
+  limbType: 3
   zombieIsDead: 0
 --- !u!1 &5165936988173860266
 GameObject:
@@ -5027,7 +5027,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.5
   deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
-  limbType: 10
+  limbType: 5
   zombieIsDead: 0
 --- !u!1 &7007810721581464463
 GameObject:
@@ -5535,7 +5535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.1
   deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
-  limbType: 14
+  limbType: 6
   zombieIsDead: 0
 --- !u!1 &7739960088463707853
 GameObject:
@@ -5684,7 +5684,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.071750164
+  m_Radius: 0.04
   m_Height: 0.3003267
   m_Direction: 0
   m_Center: {x: -0.13651235, y: -0.0000001396984, z: -0.00000006356276}
@@ -5816,7 +5816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.5
   deathEffect: {fileID: 11400000, guid: 6d548dbe386366f4abeea54abdca04c8, type: 2}
-  limbType: 7
+  limbType: 4
   zombieIsDead: 0
 --- !u!1 &7868360270724142931
 GameObject:
@@ -5970,16 +5970,16 @@ MonoBehaviour:
   - name: Foot, Leg
     groups: 0600000005000000
     props:
-      unpinParents: 0.2
-      unpinChildren: 0.75
+      unpinParents: 0
+      unpinChildren: 0
       unpinGroup: 0
       minMappingWeight: 0
-      maxMappingWeight: 1
+      maxMappingWeight: 0
       minPinWeight: 0
       disableColliders: 0
       regainPinSpeed: 1
-      collisionResistance: 10
-      knockOutDistance: 0.1
+      collisionResistance: 1000
+      knockOutDistance: 0.5
       puppetMaterial: {fileID: 0}
       unpinnedMaterial: {fileID: 0}
   knockOutDistance: 1.2
@@ -5989,7 +5989,7 @@ MonoBehaviour:
   unpinnedMuscleKnockout: 1
   dropProps: 0
   canGetUp: 1
-  getUpDelay: 2
+  getUpDelay: 1
   blendToAnimationTime: 0.2
   maxGetUpVelocity: 0.3
   minGetUpDuration: 1
@@ -6193,7 +6193,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.07175008
+  m_Radius: 0.04
   m_Height: 0.30032653
   m_Direction: 0
   m_Center: {x: -0.1365123, y: 0.000000050291426, z: 0.000000037951395}
@@ -6325,7 +6325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.5
   deathEffect: {fileID: 11400000, guid: e65c470fa0ea0a7468c3cbdb7351df54, type: 2}
-  limbType: 4
+  limbType: 3
   zombieIsDead: 0
 --- !u!1 &8226957422162963806
 GameObject:
@@ -6542,7 +6542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.5
   deathEffect: {fileID: 11400000, guid: c80e730a03e079f44b1226941d69adcf, type: 2}
-  limbType: 13
+  limbType: 6
   zombieIsDead: 0
 --- !u!1 &8289577954890568763
 GameObject:
@@ -6876,7 +6876,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.079722404
+  m_Radius: 0.04
   m_Height: 0.29231545
   m_Direction: 0
   m_Center: {x: -0.13287081, y: -0.000000024214383, z: -0.000000053085405}
@@ -7008,7 +7008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   limbDamageModifier: 0.5
   deathEffect: {fileID: 11400000, guid: 6d548dbe386366f4abeea54abdca04c8, type: 2}
-  limbType: 6
+  limbType: 4
   zombieIsDead: 0
 --- !u!1 &8532666055298169910
 GameObject:
@@ -7156,7 +7156,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.07972231
+  m_Radius: 0.04
   m_Height: 0.29231513
   m_Direction: 0
   m_Center: {x: -0.13287067, y: 0.00000012479725, z: 0.00000002887099}

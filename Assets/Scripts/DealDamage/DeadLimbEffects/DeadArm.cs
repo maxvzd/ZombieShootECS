@@ -8,7 +8,7 @@ namespace DealDamage.DeadLimbEffects
     {
         [SerializeField] private string armGroup;
         
-        public override void Apply(BehaviourPuppet puppet)
+        public override void Apply(BehaviourPuppet puppet, Animator animator)
         {
             for (int i = 0; i < puppet.puppetMaster.muscles.Length; i++)
             {

@@ -2,16 +2,16 @@
 {
     public class DeadZombieBehaviour : Node
     {
-        private readonly ZombieBehaviourTree _tree;
+        private readonly ZombieBehaviourTree _behaviourTree;
 
-        public DeadZombieBehaviour(ZombieBehaviourTree tree)
+        public DeadZombieBehaviour(ZombieBehaviourTree behaviourTree)
         {
-            _tree = tree;
+            _behaviourTree = behaviourTree;
         }
         
         public override NodeState Evaluate()
         {
-            _tree.isTreeEnabled = false;
+            _behaviourTree.isAiEnabled = false;
             return State = NodeState.Success;
         }
     }

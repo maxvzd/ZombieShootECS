@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace BehaviourTrees.Zombie
 {
-    public class ZombieBehaviourTree : Tree
+    public class ZombieBehaviourTree : BehaviourTree
     {
         protected override Node SetupTree()
         {
