@@ -9,4 +9,9 @@
     public static readonly string Fire1Key = "Fire1";
     public static readonly string Fire2Key = "Fire2";
     public static readonly string SpawnKey = "Spawn";
+    
+    public static readonly string PlayerTag = "Player";
+
+    public static readonly string TargetPositionData = "TargetPosition";
+    public static readonly string TargetData = "Target";
 }

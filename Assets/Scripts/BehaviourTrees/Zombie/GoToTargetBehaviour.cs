@@ -19,6 +19,7 @@ namespace BehaviourTrees.Zombie
                 
             if (_navmeshAgent.remainingDistance <= _navmeshAgent.stoppingDistance)
             {
+                RemoveData(Constants.TargetPositionData);
                 return State = NodeState.Success;
             }
             return State = NodeState.Running;

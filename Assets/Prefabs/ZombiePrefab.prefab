@@ -530,7 +530,6 @@ GameObject:
   - component: {fileID: 1506339209237554661}
   - component: {fileID: 733200107297174257}
   - component: {fileID: 3417532117133318931}
-  - component: {fileID: 3601271990639278413}
   m_Layer: 8
   m_Name: Zombie1
   m_TagString: Untagged
@@ -636,21 +635,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAiEnabled: 1
---- !u!114 &3601271990639278413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369164355597729721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e6bea1a649402e9c361477719cb6e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   sightRadius: 20
   fov: 70
-  eyes: {fileID: 2066763934724806990}
+  eyesTransform: {fileID: 2066763934724806990}
 --- !u!1 &1461402967000858239
 GameObject:
   m_ObjectHideFlags: 0

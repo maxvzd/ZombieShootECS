@@ -12,7 +12,7 @@ namespace BehaviourTrees
     public abstract class Node
     {
         protected NodeState State;
-
+        
         public Node Parent;
         protected List<Node> Children;
 
@@ -35,49 +35,65 @@ namespace BehaviourTrees
 
         public abstract NodeState Evaluate();
 
-        public void AddData(string key, object data)
+        protected void AddData(string key, object data)
         {
-            _dataContext.Add(key, data);
+            if (Parent is null)
+            {
+                _dataContext.Add(key, data);
+            }
+            else
+            {
+                Parent.AddData(key, data);
+            }
+        }
+
+        protected void EditData(string key, object value)
+        {
+            if (Parent is null)
+            {
+                object data = GetData(key);
+                if (data is not null)
+                {
+                    RemoveData(key);
+                }
+                AddData(key, value);
+            }
+            else
+            {
+                Parent.EditData(key, value);
+            }
         }
 
         protected object GetData(string key)
         {
-            if (_dataContext.TryGetValue(key, out var data))
+            if (Parent is null)
             {
-                return data;
-            }
-
-            Node parent = Parent;
-            while (parent is not null)
-            {
-                data = parent.GetData(key);
-                if (data is not null)
+                if (_dataContext.TryGetValue(key, out var data))
                 {
                     return data;
                 }
-                parent = parent.Parent;
             }
-
+            else
+            {
+                return Parent.GetData(key);
+            }
             return null;
         }
         
         protected bool RemoveData(string key)
         {
-            if (_dataContext.TryGetValue(key, out var data))
+            if (Parent is null)
             {
-                return _dataContext.Remove(key);
-            }
-
-            Node parent = Parent;
-            while (parent is not null)
-            {
-                data = parent.GetData(key);
-                if (data is not null)
+                if (_dataContext.TryGetValue(key, out var _))
                 {
                     return _dataContext.Remove(key);
                 }
-                parent = parent.Parent;
             }
+            else
+            {
+                return Parent.RemoveData(key);
+            }
+
             return false;
         }
         
