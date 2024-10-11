@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BehaviourTrees
 {
@@ -34,20 +35,8 @@ namespace BehaviourTrees
         }
 
         public abstract NodeState Evaluate();
-
-        protected void AddData(string key, object data)
-        {
-            if (Parent is null)
-            {
-                _dataContext.Add(key, data);
-            }
-            else
-            {
-                Parent.AddData(key, data);
-            }
-        }
-
-        protected void EditData(string key, object value)
+        
+        protected void AddEditData(string key, object value)
         {
             if (Parent is null)
             {
@@ -56,11 +45,11 @@ namespace BehaviourTrees
                 {
                     RemoveData(key);
                 }
-                AddData(key, value);
+                _dataContext.Add(key, value);
             }
             else
             {
-                Parent.EditData(key, value);
+                Parent.AddEditData(key, value);
             }
         }
 
@@ -79,6 +68,17 @@ namespace BehaviourTrees
             }
             return null;
         }
+
+        // protected bool? GetDataAsBool(string key)
+        // {
+        //     object data = GetData(key);
+        //     if (data is bool b)
+        //     {
+        //         return b;
+        //     }
+        //
+        //     return null;
+        // }
         
         protected bool RemoveData(string key)
         {

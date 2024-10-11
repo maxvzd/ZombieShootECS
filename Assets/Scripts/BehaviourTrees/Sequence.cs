@@ -8,8 +8,6 @@ namespace BehaviourTrees
 
         public override NodeState Evaluate()
         {
-            bool isAnyChildRunning = false;
-
             foreach (Node child in Children)
             {
                 switch (child.Evaluate())
@@ -18,8 +16,7 @@ namespace BehaviourTrees
                         State = NodeState.Failure;
                         return State;
                     case NodeState.Running:
-                        isAnyChildRunning = true;
-                        continue;
+                        return State = NodeState.Running;
                     case NodeState.Success:
                         continue;
                     default:
@@ -28,7 +25,7 @@ namespace BehaviourTrees
                 }
             }
 
-            return State = isAnyChildRunning ? NodeState.Running : NodeState.Success;
+            return State = NodeState.Success;
         }
     }
 }

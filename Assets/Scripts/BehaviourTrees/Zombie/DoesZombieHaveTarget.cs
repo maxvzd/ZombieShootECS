@@ -2,6 +2,9 @@
 {
     public class DoesZombieHaveTarget : Node
     {
-        public override NodeState Evaluate() => GetData(Constants.TargetData) is null ? NodeState.Failure : State = NodeState.Success;
+        public override NodeState Evaluate() => 
+            GetData(Constants.TargetPositionData) is not null ? 
+                State = NodeState.Success : 
+                State = NodeState.Failure;
     }
 }

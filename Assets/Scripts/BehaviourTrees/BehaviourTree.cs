@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace BehaviourTrees
 {
     public abstract class BehaviourTree : MonoBehaviour
     {
         private Node _root;
-        [FormerlySerializedAs("isTreeEnabled")] public bool isAiEnabled = true;
+
+        public bool isAiEnabled = true;
+
+        private float _timeElapsed;
+        private const float Tick = 0.5f;
+
 
         protected virtual void Start()
         {
@@ -16,8 +20,14 @@ namespace BehaviourTrees
         private void Update()
         {
             if (_root is null || !isAiEnabled) return;
-            
-            _root.Evaluate();
+
+            _timeElapsed += Time.deltaTime;
+
+            if (_timeElapsed > Tick)
+            {
+                _timeElapsed = 0f;
+                _root.Evaluate();
+            }
         }
 
         protected abstract Node SetupTree();

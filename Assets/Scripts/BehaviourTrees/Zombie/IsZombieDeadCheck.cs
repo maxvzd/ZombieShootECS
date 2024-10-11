@@ -17,7 +17,7 @@ namespace BehaviourTrees.Zombie
             {
                 return State = NodeState.Success;
             }
-            return NodeState.Failure;
+            return State = NodeState.Failure;
         }
     }
 }
